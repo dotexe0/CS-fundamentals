@@ -81,3 +81,29 @@ LinkedList.prototype.search = function(searchValue) {
     }
     return null;
 }
+
+LinkedList.prototype.indexOf = function(searchValue) {
+    var arrayOfIndexes = [];
+    var index = 0;
+    var currentNode = this.head;
+    while (currentNode) {
+        if (currentNode.value === searchValue) {
+            arrayOfIndexes.push(index);
+        }
+        currentNode = currentNode.next;
+        index++;
+    }
+    return arrayOfIndexes;
+};
+
+// var ll = new LinkedList();
+// ll.addToHead(1);
+// ll.addToHead(5);
+// ll.addToHead(3);
+// ll.addToHead(5);
+// ll.addToHead(8);
+// ll.addToHead(7);
+// ll.addToHead(5);
+
+// console.log(ll.indexOf(5));
+

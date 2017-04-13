@@ -66,10 +66,18 @@ LinkedList.prototype.removeTail = function() {
     else this.head = null;
     return val;
 }
-var ll = new LinkedList();
-ll.addToHead(1000);
-ll.addToHead(2000);
-ll.addToTail(3000);
-// ll.removeTail();
-console.log(ll.removeTail());
+// var ll = new LinkedList();
+// ll.addToHead(1000);
+// ll.addToHead(2000);
+// ll.addToTail(3000);
+// // ll.removeTail();
+// console.log(ll.removeTail());
 
+LinkedList.prototype.search = function(searchValue) {
+    var currentNode  = this.head;
+    while (currentNode) {
+        if (currentNode.value === searchValue) return currentNode.value;
+        currentNode = currentNode.next;
+    }
+    return null;
+}

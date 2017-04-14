@@ -20,7 +20,7 @@ LinkedList.prototype.addToHead = function(value) {
     var newNode = new Node(value, this.head, null);
     //already nodes present in LinkedList
     if (this.head) {
-      this.head.prev = newNode; 
+      this.head.prev = newNode;
     } else  {
       this.tail = newNode;
     }
@@ -96,14 +96,26 @@ LinkedList.prototype.indexOf = function(searchValue) {
     return arrayOfIndexes;
 };
 
-// var ll = new LinkedList();
-// ll.addToHead(1);
-// ll.addToHead(5);
-// ll.addToHead(3);
-// ll.addToHead(5);
+
+LinkedList.prototype.get = function(index) {
+  var counter = 0;
+  var currentNode = this.head;
+  while (currentNode) {
+    if (counter > index) return null;
+    if (counter === index) return currentNode.value;
+    else currentNode = currentNode.next;
+    counter++;
+  }
+}
+
+var ll = new LinkedList();
+ll.addToHead(1);
+ll.addToHead(5);
+ll.addToHead(3);
+ll.addToHead(2);
 // ll.addToHead(8);
 // ll.addToHead(7);
 // ll.addToHead(5);
 
-// console.log(ll.indexOf(5));
+console.log(ll.get(3));
 

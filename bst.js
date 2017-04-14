@@ -35,7 +35,18 @@ BST.prototype.depthFirstTraversal = function(iterativeFunc, order) {
   if (order === 'post-order') iterativeFunc(this.value);
 }
 
-function log(value) {
+BST.prototype.breadthFirstTraversal = function(iterativeFunc) {
+  var queue = [this];
+  //while queue is not empty
+  while (queue.length) {
+    var treeNode = queue.shift();
+    iterativeFunc(treeNode);
+    if (treeNode.left) queue.push(treeNode.left);
+    if (treeNode.right) queue.push(treeNode.right);
+  }
+}
+
+function logValue(value) {
   console.log(value);
 }
 
@@ -52,4 +63,13 @@ bst.insert(85);
 bst.insert(105);
 bst.insert(10);
 
-bst.depthFirstTraversal(log, 'post-order');
+function logValue(value) {
+  console.log(value);
+}
+// bst.depthFirstTraversal(logValue, 'post-order');
+
+function logNode(node) {
+  console.log(node.value);
+}
+
+bst.breadthFirstTraversal(logNode);

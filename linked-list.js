@@ -1,6 +1,7 @@
 function LinkedList() {
     this.head = null;
     this.tail = null;
+    this.length = 0;
 }
 
 function Node(value, next, prev) {
@@ -107,6 +108,19 @@ LinkedList.prototype.get = function(index) {
     counter++;
   }
 }
+
+LinkedList.prototype.middle = function() {
+  var middle = this.length / 2;
+  var counter = 0;
+  var currentNode = this.head;
+  while (currentNode) {
+    if (counter === middle) {
+      return currentNode.value;
+    }
+    counter++;
+    currentNode = currentNode.next;
+  }
+};
 
 var ll = new LinkedList();
 ll.addToHead(1);

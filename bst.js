@@ -48,19 +48,13 @@ BST.prototype.breadthFirstTraversal = function(iterativeFunc) {
 
 BST.prototype.getMinVal = function() {
   if (this.left) return this.left.getMinVal();
-  else return this.left.value;
+  else return this.value;
 
 }
 
 BST.prototype.getMaxVal = function() {
-if (this.right) return this.right.getMinVal();
-else return this.right.value;
-}
-
-
-
-function logValue(value) {
-  console.log(value);
+if (this.right) return this.right.getMaxVal();
+else return this.value;
 }
 
 var bst = new BST(50);
@@ -84,5 +78,7 @@ function logValue(value) {
 function logNode(node) {
   console.log(node.value);
 }
+// bst.breadthFirstTraversal(logNode);
 
-bst.breadthFirstTraversal(logNode);
+console.log("min: ", bst.getMinVal())
+console.log("max: ", bst.getMaxVal())

@@ -27,6 +27,18 @@ BST.prototype.contains = function(value) {
   }
 }
 
+BST.prototype.depthFirstTraversal = function(iterativeFunc, order) {
+  if (order === 'pre-order') iterativeFunc(this.value);
+  if (this.left) this.left.depthFirstTraversal(iterativeFunc, order);
+  if (order === 'in-order') iterativeFunc(this.value);
+  if (this.right) this.right.depthFirstTraversal(iterativeFunc, order);
+  if (order === 'post-order') iterativeFunc(this.value);
+}
+
+function log(value) {
+  console.log(value);
+}
+
 var bst = new BST(50);
 bst.insert(30);
 bst.insert(70);
@@ -40,4 +52,4 @@ bst.insert(85);
 bst.insert(105);
 bst.insert(10);
 
-console.log(bst.contains(10));
+bst.depthFirstTraversal(log, 'post-order');

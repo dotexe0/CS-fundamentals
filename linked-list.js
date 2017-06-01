@@ -66,12 +66,51 @@ LinkedList.prototype.removeTail = function() {
   return val;
 }
 
+LinkedList.prototype.search = function(searchValue) {
+  let currentNode = this.head;
+  while(currentValue) {
+    if (currentNode.value === searchValue) return currentNode.value;
+    currentNode = this.head.next;
+  }
+  return null;
+}
 
+//return all indices that match search value in an array
+LinkedList.prototype.indexOf = function(value) {
+  let currentNode = this.head;
+  let arrayOfIndexes = [];
+  let index = 0;
+  while (currentNode) {
+    if (currentNode.value === value) {
+      arrayOfIndexes.push(index);
+    }
+      counter++;
+      currentNode = currentNode.next;
+  }
+  return arrayOfIndexes;
+}
 
+LinkedList.prototype.get = function(index) {
+  let currentNode = this.head;
+  let counter = 0;
+  while (currentNode) {
+    if (counter > index) return null;
+    if (counter === index) return currentNode.value;
+    counter++;
+    currentNode = currentNode.next;
+  }
+  return null;
+}
 
+LinkedList.prototype.middle = function() {
+  let length = 0;
+  let currentNode = this.head;
+  while (currentNode) {
+    counter++;
+    currentNode = currentNode.next;
+  }
 
-
-
+}
 
 
 
